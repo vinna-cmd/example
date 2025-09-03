@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DinginSegar - Toko Minuman Dingin</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #0a8d9f;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 141, 159, 0.8), rgba(10, 141, 159, 0.6)), url('https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ffd633;
+            transform: translateY(-3px);
+        }
+        
+        /* Menu Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #0a8d9f;
+            font-size: 32px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .menu-content {
+            padding: 20px;
+        }
+        
+        .menu-content h3 {
+            margin-bottom: 10px;
+            color: #0a8d9f;
+        }
+        
+        .menu-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #0a8d9f;
+            font-size: 20px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #e6f7f9;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a8d9f;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">DinginSegar</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Segarkan Harimu dengan Minuman Dingin Kami</h1>
+            <p>Berbagai pilihan minuman dingin yang menyegarkan untuk menemani hari-hari Anda</p>
+            <a href="#menu" class="btn">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <h2 class="section-title">Menu Minuman Kami</h2>
+            <div class="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Es Jeruk Segar">
+                    <div class="menu-content">
+                        <h3>Es Jeruk Segar</h3>
+                        <p>Perasan jeruk asli dengan es serut dan sedikit gula</p>
+                        <p class="price">Rp 15.000</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 2 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1536746803623-cef87080c7b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Es Thai Tea">
+                    <div class="menu-content">
+                        <h3>Es Thai Tea</h3>
+                        <p>Teh Thailand asli dengan susu dan es yang menyegarkan</p>
+                        <p class="price">Rp 20.000</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 3 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1563227815-4b37b2e505b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Es Cincau Hijau">
+                    <div class="menu-content">
+                        <h3>Es Cincau Hijau</h3>
+                        <p>Cincau hijau asli dengan gula merah dan es serut</p>
+                        <p class="price">Rp 12.000</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 4 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Es Kelapa Muda">
+                    <div class="menu-content">
+                        <h3>Es Kelapa Muda</h3>
+                        <p>Kelapa muda asli dengan es dan gula merah</p>
+                        <p class="price">Rp 18.000</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 5 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Es Campur">
+                    <div class="menu-content">
+                        <h3>Es Campur Special</h3>
+                        <p>Campuran buah-buahan segar dengan sirup dan es serut</p>
+                        <p class="price">Rp 22.000</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 6 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Es Kopi Susu">
+                    <div class="menu-content">
+                        <h3>Es Kopi Susu Gula Aren</h3>
+                        <p>Kopi pilihan dengan susu dan gula aren asli</p>
+                        <p class="price">Rp 25.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang DinginSegar</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>DinginSegar didirikan pada tahun 2020 dengan misi memberikan minuman dingin berkualitas tinggi dengan bahan-bahan terbaik. Kami memilih hanya bahan-bahan segar dan alami untuk setiap minuman yang kami sajikan.</p>
+                    <p>Dengan pengalaman lebih dari 3 tahun, kami terus berinovasi menciptakan varian minuman baru yang disukai oleh pelanggan kami. Kepuasan pelanggan adalah prioritas utama kami.</p>
+                    <p>Setiap minuman dibuat dengan penuh cinta dan perhatian untuk memastikan Anda mendapatkan pengalaman minum yang menyegarkan dan memuaskan.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Toko DinginSegar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DinginSegar</h3>
+                    <p>Menyediakan berbagai minuman dingin yang menyegarkan dengan bahan-bahan pilihan terbaik.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p>📱 WhatsApp: 0812-3456-7890</p>
+                    <p>📞 Telepon: (021) 123-4567</p>
+                    <p>📧 Email: info@dinginsegar.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Alamat</h3>
+                    <p>Jl. Minuman Segar No. 123</p>
+                    <p>Jakarta Selatan, DKI Jakarta</p>
+                    <p>Indonesia</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Kami</h3>
+                    <div class="social-icons">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 DinginSegar - All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
